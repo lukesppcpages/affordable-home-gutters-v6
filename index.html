@@ -39,24 +39,14 @@
   ul{margin:0; padding:0; list-style:none;}
   .wrap{max-width:1040px; margin:0 auto; padding:0 20px;}
 
-  /* Announcement bar */
-  .announce{background:var(--navy); color:#fff; text-align:center; padding:9px 16px;}
-  .announce p{
-    margin:0; font-size:0.92rem; font-weight:500; letter-spacing:0.03em; text-transform:uppercase;
-    display:flex; align-items:center; justify-content:center; gap:6px; flex-wrap:wrap;
-  }
-  .announce-highlight{color:var(--green);}
-
   /* Header */
   header.site-header{background:var(--white); border-bottom:1px solid var(--grey); position:sticky; top:0; z-index:50;}
   .header-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 16px; gap:10px;}
   .site-logo{height:22px; width:auto; flex:none;}
-  .header-cta{
-    background:var(--green); color:#fff; font-weight:700; font-size:0.72rem;
-    padding:9px 12px; border-radius:8px; white-space:nowrap; border:none; cursor:pointer;
-    transition:background .15s ease; flex:none;
+  .header-offer{
+    color:var(--green); font-weight:800; font-size:0.72rem;
+    white-space:nowrap; flex:none;
   }
-  .header-cta:hover{background:var(--green-dark);}
 
   /* Hero */
   .hero{padding:36px 0 32px; background:linear-gradient(180deg,#F0F4F3 0%, var(--bg) 100%);}
@@ -225,7 +215,7 @@
     .wrap{padding:0 32px;}
     .header-inner{padding:16px clamp(32px, 16vw, 350px);}
     .site-logo{height:34px;}
-    .header-cta{font-size:0.82rem; padding:10px 16px;}
+    .header-offer{font-size:0.92rem;}
     .hero{
       padding:0; min-height:640px; display:flex; align-items:center;
       background-image:linear-gradient(to right, #F5F6F8 0%, #F5F6F8 34%, rgba(245,246,248,.85) 48%, rgba(245,246,248,.3) 64%, rgba(245,246,248,0) 80%), url('img/hero-desktop-bg.jpg');
@@ -255,16 +245,10 @@
 </head>
 <body>
 
-<div class="announce">
-  <p>
-    <span class="announce-highlight">Exclusive Offer:</span> 75% Off Installs + Extra $200 Off Gutters
-  </p>
-</div>
-
 <header class="site-header">
   <div class="header-inner">
     <img src="img/logo-black.svg" alt="Affordable Home" class="site-logo" />
-    <button class="header-cta" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Claim My Exclusive Offer</button>
+    <span class="header-offer">75% Off Installs + $200 Off*</span>
   </div>
 </header>
 
