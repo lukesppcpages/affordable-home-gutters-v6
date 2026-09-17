@@ -84,6 +84,8 @@
   .btn-primary svg{flex:none; transition:transform .15s ease;}
   .btn-primary:hover svg{transform:translateX(3px);}
   .btn-primary:hover svg.arrow-down{transform:translateY(3px);}
+  .cta-today{display:none;}
+  .btn-cta{font-size:13px; padding-left:16px; padding-right:16px;}
   .hero-media{position:relative;}
   .hero-media .frame{
     border-radius:18px; overflow:hidden; box-shadow:0 30px 60px -30px rgba(23,42,58,.4); position:relative;
@@ -234,6 +236,8 @@
     .hero-green-sub{font-size:1.5rem;}
     .hero-bullets li{font-size:1.02rem;}
     .hero-media{display:none;}
+    .cta-today{display:inline;}
+    .btn-cta{font-size:1rem; padding-left:24px; padding-right:24px;}
     .hero-cta-row{flex-direction:row; align-items:center;}
     .feature-grid{grid-template-columns:repeat(4,1fr);}
     .offer-grid{flex-direction:row; flex-wrap:wrap;}
@@ -280,8 +284,8 @@
         <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Lifetime, Clog-Free Guarantee*</li>
       </ul>
       <div class="hero-cta-row">
-        <button class="btn-primary" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">
-          Get your free, no-obligation quote today!
+        <button class="btn-primary btn-cta" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">
+          Get your free, no-obligation quote<span class="cta-today"> today</span>!
           <svg class="arrow-down" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
         </button>
       </div>
@@ -325,8 +329,8 @@
       <img src="img/before-after.jpg" alt="Before and after comparison of a gutter clogged with leaves versus a clean Leafguard installed gutter" loading="lazy" width="1400" height="723" style="border-radius:18px; box-shadow:0 24px 50px -30px rgba(23,42,58,.35);" />
     </div>
     <div style="text-align:center; margin-top:32px;">
-      <button class="btn-primary" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">
-        Get your free, no-obligation quote today!
+      <button class="btn-primary btn-cta" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">
+        Get your free, no-obligation quote<span class="cta-today"> today</span>!
         <svg class="arrow-down" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
       </button>
     </div>
@@ -368,8 +372,8 @@
       <h2>Installed By Leafguard-Certified Crews</h2>
       <p>Every install is handled by trained, licensed, and insured professionals &mdash; not subcontractors pulled off a general job board. That&rsquo;s how we back every install with a lifetime, clog-free guarantee.</p>
       <div class="badge-row">
-        <button class="btn-primary" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">
-          Get your free, no-obligation quote today!
+        <button class="btn-primary btn-cta" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">
+          Get your free, no-obligation quote<span class="cta-today"> today</span>!
           <svg class="arrow-down" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
         </button>
       </div>
@@ -467,7 +471,7 @@
           </div>
         </div>
         <button type="submit" class="btn-primary quote-submit">
-          Get your free, no-obligation quote today!
+          GET QUOTE
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
       </form>
@@ -498,8 +502,8 @@
 </footer>
 
 <div class="sticky-cta" id="stickyCta">
-  <button class="btn-primary" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">
-    Get your free, no-obligation quote today! &rarr;
+  <button class="btn-primary btn-cta" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">
+    Get your free, no-obligation quote<span class="cta-today"> today</span>! &rarr;
   </button>
 </div>
 
