@@ -45,11 +45,12 @@
 
   /* Header */
   header.site-header{background:var(--white); border-bottom:1px solid var(--grey); position:sticky; top:0; z-index:50;}
-  .header-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 16px; gap:10px;}
-  .site-logo{height:22px; width:auto; flex:none;}
-  .partner-badge{display:flex; flex-direction:column; align-items:center; gap:3px; flex:none;}
-  .partner-logo{height:16px; width:auto;}
-  .partner-label{font-size:0.56rem; font-weight:800; color:var(--green); letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap;}
+  .header-inner{display:flex; align-items:center; justify-content:flex-start; padding:12px 16px; gap:14px;}
+  .lockup-leafguard{height:26px; width:auto; flex:none;}
+  .lockup-divider{width:1px; height:30px; background:var(--grey); flex:none;}
+  .lockup-brought-by{display:flex; flex-direction:column; gap:2px; flex:none;}
+  .lockup-label{font-size:0.58rem; font-weight:600; color:var(--ink-soft); letter-spacing:0.02em; white-space:nowrap;}
+  .site-logo{height:14px; width:auto; flex:none;}
 
   /* Hero */
   .hero{padding:36px 0 32px; background:linear-gradient(180deg,#F0F4F3 0%, var(--bg) 100%);}
@@ -219,10 +220,11 @@
   /* Desktop */
   @media (min-width:960px){
     .wrap{padding:0 32px;}
-    .header-inner{padding:16px clamp(32px, 16vw, 350px);}
-    .partner-logo{height:20px;}
-    .partner-label{font-size:0.65rem;}
-    .site-logo{height:34px;}
+    .header-inner{padding:16px clamp(32px, 16vw, 350px); gap:20px;}
+    .lockup-leafguard{height:34px;}
+    .lockup-divider{height:38px;}
+    .lockup-label{font-size:0.7rem;}
+    .site-logo{height:18px;}
     .announce p{font-size:1.2rem;}
     .hero{
       padding:0; min-height:640px; display:flex; align-items:center;
@@ -262,10 +264,11 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <img src="img/logo-black.svg" alt="Affordable Home" class="site-logo" />
-    <div class="partner-badge">
-      <img src="img/leafguard-badge.png" alt="Leafguard" class="partner-logo" />
-      <span class="partner-label">Official Partner</span>
+    <img src="img/leafguard-dark.svg" alt="Leafguard" class="lockup-leafguard" />
+    <span class="lockup-divider"></span>
+    <div class="lockup-brought-by">
+      <span class="lockup-label">Brought to you by</span>
+      <img src="img/logo-black.svg" alt="Affordable Home" class="site-logo" />
     </div>
   </div>
 </header>
