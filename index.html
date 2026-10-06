@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hero-photo.jpg">
 <style>
   :root{
     --navy:#172A3A;
@@ -40,6 +39,12 @@
   .wrap{max-width:1040px; margin:0 auto; padding:0 20px;}
 
   /* Promo bars */
+  .promo-mobile{display:flex; align-items:center; justify-content:center; gap:14px; background:var(--green-dark); color:#fff; padding:16px 14px; text-align:center;}
+  .promo-mobile svg{flex:none;}
+  .promo-mobile p{margin:0;}
+  .pm-1{font-weight:800; font-size:1.05rem; line-height:1.25;}
+  .pm-2{font-weight:600; font-size:0.95rem; opacity:.85; margin-top:2px !important;}
+  .promo-d{display:none;}
   .promo-bar{background:var(--navy); color:#fff; text-align:center; padding:18px 20px;}
   .promo-bar p{margin:0; color:#fff; font-weight:800; font-size:clamp(1.1rem, 3.2vw, 1.5rem); letter-spacing:0.02em;}
   .promo-bar-secondary{background:#1AB277; color:#fff; text-align:center; padding:10px 20px;}
@@ -55,22 +60,28 @@
   .site-logo{height:14px; width:auto; flex:none;}
 
   /* Hero */
-  .hero{padding:36px 0 32px; background:linear-gradient(180deg,#F0F4F3 0%, var(--bg) 100%);}
-  .hero-grid{display:flex; flex-direction:column; gap:28px;}
+  .hero{padding:26px 0 20px; background:linear-gradient(180deg,#DDEBF6 0%,#ECF4F9 38%,var(--bg) 100%);}
+  .hero-grid{display:flex; flex-direction:column; gap:22px;}
+  .hero-copy{text-align:center;}
+  .hero-copy .hero-trust-top{display:none;}
   .hero-trust-top{
     display:flex; align-items:center; gap:8px; font-size:0.85rem; font-weight:700; color:var(--navy);
     margin-bottom:14px;
   }
   .hero-trust-top .stars{color:var(--gold); letter-spacing:1px;}
   .hero h1{
-    margin:0; font-weight:900; line-height:1.14; color:var(--navy);
-    font-size:clamp(20px, calc(8vw - 5px), 48px);
+    margin:0; font-weight:900; line-height:1.08; color:var(--navy);
+    font-size:clamp(28px, 9.6vw, 56px);
   }
   .hero-green-sub{
-    margin:14px 0 0; color:var(--green); font-weight:700; line-height:1.4;
-    font-size:clamp(16px, calc(3.6vw + 2px), 19px);
+    margin:14px 0 0; color:#4A5A70; font-weight:500; line-height:1.4;
+    font-size:clamp(16px, 4.6vw, 22px);
   }
-  .hero-bullets{margin-top:20px; display:flex; flex-direction:column; gap:10px;}
+  .sub-d{display:none;}
+  .hero-bullets{margin-top:20px; display:none; flex-direction:column; gap:10px;}
+  .hero-icons{display:flex; justify-content:center; align-items:flex-start; gap:18px; margin-top:22px;}
+  .hero-icons li{flex:1; max-width:112px; display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; font-weight:700; font-size:0.88rem; line-height:1.25; color:var(--navy);}
+  .hero-icons .ic{width:56px; height:56px; border-radius:50%; background:#DDF0E9; color:var(--green-dark); display:flex; align-items:center; justify-content:center;}
   .hero-bullets li{display:flex; align-items:center; gap:10px; font-weight:600; font-size:0.92rem; color:var(--navy);}
   .hero-bullets .tick{
     flex:none; width:20px; height:20px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center;
@@ -90,18 +101,14 @@
   .btn-primary:hover svg.arrow-up{transform:translateY(-3px);}
   .cta-desktop{display:none;}
   .btn-cta{font-size:13px; padding-left:16px; padding-right:16px;}
-  .hero-media{position:relative;}
-  .hero-media .frame{
-    border-radius:18px; overflow:hidden; box-shadow:0 30px 60px -30px rgba(23,42,58,.4); position:relative;
-  }
-  .hero-media img{width:100%; height:auto;}
 
   /* Quote form */
   .quote-card{
     background:var(--white); border-radius:20px; box-shadow:0 30px 60px -35px rgba(0,0,0,.4);
     padding:28px 22px; max-width:640px; margin:0 auto; border:1px solid var(--grey); text-align:left;
   }
-  .quote-card h3{margin:0 0 20px; font-size:1.3rem; color:var(--navy); text-align:center; font-weight:800;}
+  .h3-d{display:none;}
+  .quote-card h3{margin:0 0 20px; font-size:clamp(1rem, 4.4vw, 1.3rem); color:var(--navy); text-align:center; font-weight:800;}
   .field-row{display:flex; flex-direction:column; gap:12px; margin-bottom:12px;}
   .field-row.name-row{flex-direction:row;}
   .field{flex:1; min-width:0; display:flex; flex-direction:column; gap:6px;}
@@ -112,7 +119,9 @@
   }
   .field input:focus{outline:none; border-color:var(--green);}
   .quote-submit{width:100%; margin-top:10px; font-size:1.02rem; padding:16px;}
-  .quote-fine{margin:14px 0 0; font-size:0.7rem; color:var(--ink-soft); text-align:center; line-height:1.5;}
+  .form-trust{display:flex; align-items:center; justify-content:center; gap:6px; margin-top:16px; font-size:0.8rem; font-weight:700; color:var(--navy); white-space:nowrap;}
+  .form-trust .stars{color:var(--gold); letter-spacing:1px;}
+  .quote-fine{display:none; margin:14px 0 0; font-size:0.7rem; color:var(--ink-soft); text-align:center; line-height:1.5;}
   .quote-secure{display:flex; align-items:center; justify-content:center; gap:6px; margin-top:12px; font-size:0.75rem; color:var(--ink-soft); font-weight:600;}
 
   /* Section shells */
@@ -126,12 +135,14 @@
   .section-navy .section-head p{color:#B9C4D3;}
 
   /* Feature banner */
-  .feature-banner{background:var(--navy); padding:30px 0;}
-  .feature-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px 16px;}
-  .feature-item{display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px;}
+  .feature-banner{background:var(--navy); padding:20px 0;}
+  .feature-banner .wrap{padding:0 6px;}
+  .feature-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:0;}
+  .feature-item{display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; padding:0 4px;}
+  .feature-item + .feature-item{border-left:1px solid rgba(255,255,255,.16);}
   .feature-icon{color:var(--green);}
   .feature-icon.icon-usa{width:30px; height:30px;}
-  .feature-item p{margin:0; color:#fff; font-weight:700; font-size:0.82rem; line-height:1.3;}
+  .feature-item p{margin:0; color:#fff; font-weight:700; font-size:0.72rem; line-height:1.25;}
 
   /* Solution section */
   .problem-media{border-radius:18px; overflow:hidden; box-shadow:0 24px 50px -30px rgba(23,42,58,.35);}
@@ -235,11 +246,29 @@
     .hero h1{font-size:clamp(32px, 3.2vw, 46px);}
     .hero-green-sub{font-size:clamp(1.15rem, 1.9vw, 1.5rem);}
     .hero-bullets li{font-size:1.02rem;}
-    .hero-media{display:none;}
     .cta-mobile{display:none;}
     .cta-desktop{display:inline;}
     .btn-cta{font-size:1rem; padding-left:24px; padding-right:24px;}
-    .feature-grid{grid-template-columns:repeat(4,1fr);}
+    .promo-mobile{display:none;}
+    .promo-d{display:block;}
+    .hero-copy .hero-trust-top{display:flex;}
+    .hero-icons{display:none;}
+    .hero-bullets{display:flex;}
+    .hero h1{line-height:1.14;}
+    .hero-green-sub{color:var(--green); font-weight:700;}
+    .sub-m{display:none;}
+    .sub-d{display:inline;}
+    .h3-m{display:none;}
+    .h3-d{display:inline;}
+    .quote-card h3{font-size:1.3rem;}
+    .form-trust{display:none;}
+    .quote-fine{display:block;}
+    .feature-banner{padding:30px 0;}
+    .feature-banner .wrap{padding:0 32px;}
+    .feature-grid{gap:26px 16px;}
+    .feature-item{gap:10px; padding:0;}
+    .feature-item + .feature-item{border-left:none;}
+    .feature-item p{font-size:0.82rem;}
     .offer-grid{flex-direction:row; flex-wrap:wrap;}
     .offer-card{flex:1;}
     .offer-card.card-mini{flex-basis:100%; max-width:560px; margin:20px auto 0;}
@@ -275,10 +304,14 @@
   </div>
 </header>
 
-<div class="promo-bar">
+<div class="promo-mobile">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg>
+  <div><p class="pm-1">75% OFF Installation + $200 OFF</p><p class="pm-2">0% Financing Available*</p></div>
+</div>
+<div class="promo-bar promo-d">
   <p>75% OFF INSTALLATION + SAVE AN EXTRA $200 TODAY</p>
 </div>
-<div class="promo-bar-secondary">
+<div class="promo-bar-secondary promo-d">
   <p>For a Limited Time Get 0% Financing*</p>
 </div>
 
@@ -290,7 +323,12 @@
         <strong>500,000+</strong> Homeowners Protected
       </div>
       <h1>Say Goodbye to Gutter Cleaning for Good</h1>
-      <p class="hero-green-sub">Save On Leafguard&rsquo;s Clog-Free Gutters</p>
+      <p class="hero-green-sub"><span class="sub-m">Save on Leafguard&rsquo;s Clog-Free Gutter System.</span><span class="sub-d">Save On Leafguard&rsquo;s Clog-Free Gutters</span></p>
+      <ul class="hero-icons">
+        <li><span class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span>Clog-Free</li>
+        <li><span class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>Maintenance-Free</li>
+        <li><span class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3.5v6c0 5-3.4 8.9-8 10.5-4.6-1.6-8-5.5-8-10.5v-6L12 2z"/><path d="M12 8v6M9 11h6"/></svg></span>Lifetime Warranty</li>
+      </ul>
       <ul class="hero-bullets">
         <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Keeps Out Leaves &amp; Debris</li>
         <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Helps Prevent Water Damage</li>
@@ -299,7 +337,7 @@
     </div>
     <div class="hero-form" id="quote">
     <div class="quote-card">
-      <h3>Get your free, no-obligation quote today!</h3>
+      <h3><span class="h3-m">Get Your Free, No&#8209;Obligation Quote Today!</span><span class="h3-d">Get your free, no-obligation quote today!</span></h3>
       <form id="quoteForm" action="thank-you.html" method="GET">
         <div class="field-row name-row">
           <div class="field">
@@ -332,17 +370,13 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
       </form>
+      <div class="form-trust"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <strong>500,000+</strong> Homeowners Protected</div>
       <div class="quote-secure">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         Your information is safe &amp; secure
       </div>
       <p class="quote-fine">By submitting, you agree to be contacted about this offer by phone, text, or email, including by automated means. Msg &amp; data rates may apply. No purchase necessary.</p>
     </div>
-    </div>
-    <div class="hero-media">
-      <div class="frame">
-        <img src="img/hero-photo.jpg" alt="New white gutter and downspout installed on a home" width="1400" height="858" fetchpriority="high" />
-      </div>
     </div>
   </div>
 </section>
